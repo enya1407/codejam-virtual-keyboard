@@ -28,7 +28,6 @@ const helper = {
     'BracketLeft',
     'BracketRight',
     'Backslash',
-    'Delete',
     'CapsLock',
     'KeyA',
     'KeyS',
@@ -68,7 +67,6 @@ const helper = {
   FUNCTIONALKEYCODES: {
     Backspace: 'Backspace',
     Tab: 'Tab',
-    Delete: 'Del',
     CapsLock: 'CapsLock',
     Enter: 'Enter',
     ShiftLeft: 'Shift',

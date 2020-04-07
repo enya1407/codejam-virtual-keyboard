@@ -13,11 +13,11 @@ const keyboard = document.createElement('div');
 keyboard.classList.add('keyboard');
 const description = document.createElement('p');
 description.classList.add('description');
-description.innerHTML = `Hi! The keyboard is made on Windows. Change language by <b>Shift+Alt</b> or <button class="changLangBtn">${lang}</button><br>
+description.innerHTML = `Hi! <br>The keyboard is made on Windows. Change language by <b>ShiftLeft+Alt</b> or <button class="changLangBtn">${lang}</button><br>
 Change the case <b>CapsLock</b>. Change the case once <b>Shift+key</b>.`;
 wrap.append(textarea, keyboard, description);
 
-function renderKeyboard() {
+const renderKeyboard = () => {
   const activeKeys = [];
   while (keyboard.firstChild) {
     if (keyboard.firstChild.classList.contains('active')) {
@@ -46,13 +46,14 @@ function renderKeyboard() {
   });
 
   keyboard.append(fragment);
-}
+};
 
 renderKeyboard();
 
 document.addEventListener('keydown', (evt) => {
   textarea.focus();
   const key = document.querySelector(`.${evt.code}`);
+
   key.classList.add('active');
 
   if (evt.key === 'Tab') {
@@ -91,7 +92,8 @@ keyboard.addEventListener('mousedown', (evt) => {
   if (actualClass.contains('button')) {
     const isFunctional = Object.keys(FUNCTIONALKEYCODES).includes(actualClass[1]);
     actualClass.add('active');
-    if (!isFunctional ||
+    if (
+      !isFunctional ||
       actualClass.contains('ArrowLeft') ||
       actualClass.contains('ArrowDown') ||
       actualClass.contains('ArrowUp') ||
